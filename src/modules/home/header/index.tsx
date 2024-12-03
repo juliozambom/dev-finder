@@ -1,11 +1,16 @@
 import { MaterialIcons } from '@expo/vector-icons';
-import { Image, Text, View } from 'react-native';
+import { useRouter } from 'expo-router';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 
 export default function HomeHeader() {
+  const router = useRouter();
+
   return (
     <View className="justify-between w-full flex-row">
       <View className="items-center flex-row gap-6">
-        <MaterialIcons name="dehaze" size={32} />
+        <TouchableOpacity onPress={() => router.push('/(drawer)')}>
+          <MaterialIcons name="dehaze" size={32} />
+        </TouchableOpacity>
         <Text className="font-black-han-sans text-[1.6rem]">Dev Tracker</Text>
       </View>
 

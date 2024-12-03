@@ -1678,6 +1678,16 @@
     use-latest-callback "^0.2.1"
     use-sync-external-store "^1.2.2"
 
+"@react-navigation/drawer@^7.0.18":
+  version "7.0.18"
+  resolved "https://registry.yarnpkg.com/@react-navigation/drawer/-/drawer-7.0.18.tgz#cabba045a6aeccf9d40f287e117e9929a4ab16c0"
+  integrity sha512-rLyioIeKMIiXEo8w1tlsiAEcRQEfDGstpeR+7UeoCeu63D6C7tpro0/+VP1LFjlq45vUqtEB9904+AX8F3oLdw==
+  dependencies:
+    "@react-navigation/elements" "^2.2.4"
+    color "^4.2.3"
+    react-native-drawer-layout "^4.0.3"
+    use-latest-callback "^0.2.1"
+
 "@react-navigation/elements@^2.2.4":
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-2.2.4.tgz#b7ce5711298de72577a613e2e7a0c5be2dbf2fe5"
@@ -6172,6 +6182,13 @@ react-native-css-interop@0.1.22, react-native-css-interop@^0.1.18:
     lightningcss "^1.27.0"
     semver "^7.6.3"
 
+react-native-drawer-layout@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-drawer-layout/-/react-native-drawer-layout-4.0.3.tgz#6f0b9e9327a023237a508e3bfd925dbc6d6de8b6"
+  integrity sha512-JCc3UtXQMpW9iQr7JqW2bGPt3+Dl/0z3+rDM43jbqE45kltwhyG/MmVM/ltD/ySfPkik2oVdHm5Uk82MLpo57A==
+  dependencies:
+    use-latest-callback "^0.2.1"
+
 react-native-gesture-handler@~2.20.2:
   version "2.20.2"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-2.20.2.tgz#73844c8e9c417459c2f2981bc4d8f66ba8a5ee66"
@@ -6196,7 +6213,7 @@ react-native-is-edge-to-edge@^1.1.6:
   resolved "https://registry.yarnpkg.com/react-native-is-edge-to-edge/-/react-native-is-edge-to-edge-1.1.6.tgz#69ec13f70d76e9245e275eed4140d0873a78f902"
   integrity sha512-1pHnFTlBahins6UAajXUqeCOHew9l9C2C8tErnpGC3IyLJzvxD+TpYAixnCbrVS52f7+NvMttbiSI290XfwN0w==
 
-react-native-reanimated@~3.16.3:
+react-native-reanimated@~3.16.1:
   version "3.16.3"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-3.16.3.tgz#3b559dca49e9e40abcf5de834dc27fc05f856b66"
   integrity sha512-OWlA6e1oHhytTpc7WiSZ7Tmb8OYwLKYZz29Sz6d6WAg60Hm5GuAiKIWUG7Ako7FLcYhFkA0pEQ2xPMEYUo9vlw==
