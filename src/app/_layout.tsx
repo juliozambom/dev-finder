@@ -1,5 +1,5 @@
 import { useFonts } from 'expo-font';
-import { Slot, SplashScreen, Stack } from 'expo-router';
+import { Slot, SplashScreen } from 'expo-router';
 import { useEffect } from 'react';
 
 import '../styles/global.css';
@@ -10,6 +10,7 @@ export default function RootLayout() {
     LatoRegular: require('../../assets/fonts/Lato-Regular.ttf'),
     LatoBold: require('../../assets/fonts/Lato-Bold.ttf'),
     BlackHanSans: require('../../assets/fonts/BlackHanSans-Regular.ttf'),
+    SourceSans: require(`../../assets/fonts/SourceSans3-VariableFont_wght.ttf`),
   });
 
   useEffect(() => {
