@@ -30,6 +30,7 @@ export default function UserRepositoriesList() {
       className="mt-8"
       renderItem={RepositoryItem}
       keyExtractor={(item, index) => index.toString()}
+      showsVerticalScrollIndicator={false}
     />
   );
 }
