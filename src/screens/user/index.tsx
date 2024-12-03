@@ -1,8 +1,9 @@
-import UserDetails from '@/src/modules/user/details';
-import UserMetrics from '@/src/modules/user/metrics';
-import UserProfilePicture from '@/src/modules/user/profile-picture';
-import UserRepositories from '@/src/modules/user/see-repositories';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
+
+import UserProfilePicture from '@/src/modules/user/main/profile-picture';
+import UserDetails from '@/src/modules/user/main/details';
+import UserMetrics from '@/src/modules/user/main/metrics';
+import UserRepositories from '@/src/modules/user/main/see-repositories';
 
 export default function User() {
   return (

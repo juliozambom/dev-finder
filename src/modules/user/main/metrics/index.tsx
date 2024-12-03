@@ -9,11 +9,11 @@ export default function UserMetrics() {
           <Text className="text-blue-300 text-3xl">3</Text>
         </View>
 
-        <View className="bg-gray-200 h-16 w-0.5" />
+        <View className="bg-gray-100 h-20 w-0.5" />
 
         <View className="items-center gap-4">
-          <Text className="font-lato-normal text-lg">Followers</Text>
-          <Text className="text-blue-300 text-3xl">3</Text>
+          <Text className="font-lato-normal text-lg">Following</Text>
+          <Text className="text-blue-300 text-3xl">1221</Text>
         </View>
       </View>
     </View>
