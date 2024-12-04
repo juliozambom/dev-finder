@@ -21,5 +21,3 @@ export const i18nLocales = {
   en,
   'pt-br': pt_br,
 };
-
-export const i18n = i18nLocales['en'];

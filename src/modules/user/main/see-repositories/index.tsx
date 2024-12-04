@@ -1,7 +1,6 @@
 import { useAppDispatch } from '@/src/store/hooks/useAppDispatch';
 import { RootState } from '@/src/store/types';
 import { fetchUserRepositories } from '@/src/store/user/thunks';
-import { i18n } from '@/src/utils/i18n';
 import { useRouter } from 'expo-router';
 
 import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
@@ -12,6 +11,8 @@ export default function UserRepositories() {
   const { currentUser, isRepositoriesLoading } = useSelector(
     (state: RootState) => state.user
   );
+  const i18n = useSelector((state: RootState) => state.app.language);
+
   const dispatch = useAppDispatch();
 
   const handleSubmit = () => {

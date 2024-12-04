@@ -1,28 +1,30 @@
-import { i18n } from '@/src/utils/i18n';
+import { setLanguage } from '@/src/store/app/slice';
+import { useAppDispatch } from '@/src/store/hooks/useAppDispatch';
+import { RootState } from '@/src/store/types';
+import { i18nLocales, Languages } from '@/src/utils/i18n';
 import { MaterialIcons } from '@expo/vector-icons';
 import { DrawerContentComponentProps } from '@react-navigation/drawer';
-import { Href, useRouter } from 'expo-router';
+import { Href, router, useRouter } from 'expo-router';
 import { useColorScheme } from 'nativewind';
+import { useRef } from 'react';
 import { FlatList, Switch, Text, TouchableOpacity, View } from 'react-native';
+import ActionSheet, { ActionSheetRef } from 'react-native-actions-sheet';
+import { useSelector } from 'react-redux';
 
 function DrawerItem({
   label,
   icon,
-  href,
+  onPress,
   isDark,
 }: {
   label: string;
   icon: string;
-  href: Href;
+  onPress?: () => void;
   isDark: boolean;
 }) {
-  const router = useRouter();
-
   return (
     <TouchableOpacity
-      onPress={() => {
-        router.push(href);
-      }}
+      onPress={onPress}
       className="flex-row gap-2 items-center mb-5"
     >
       <MaterialIcons
@@ -36,47 +38,95 @@ function DrawerItem({
   );
 }
 export default function HomeDrawer(drawerProps: DrawerContentComponentProps) {
+  const router = useRouter();
+
+  const i18n = useSelector((state: RootState) => state.app.language);
+
   const drawerItems: {
     label: string;
     icon: string;
-    href: Href;
+    onPress?: () => void;
   }[] = [
     {
       label: i18n['Saved'],
       icon: 'bookmark-border',
-      href: '/user',
+      onPress: () => router.push('/user'),
     },
     {
       label: i18n['Language'],
       icon: 'language',
-      href: '/user',
+      onPress: () => actionSheetRef.current?.show(),
     },
   ];
 
   const { colorScheme, toggleColorScheme } = useColorScheme();
+  const dispatch = useAppDispatch();
+
+  const actionSheetRef = useRef<ActionSheetRef>(null);
+
+  const isDark = colorScheme === 'dark';
+
+  const handleChangeLanguage = (language: string) => {
+    dispatch(setLanguage(i18nLocales[language as keyof typeof i18nLocales]));
+    actionSheetRef.current?.hide();
+  };
 
   return (
-    <View className="p-8 h-full dark:bg-gray-800">
-      <Text className="font-black-han-sans text-[1.6rem] dark:text-white">
-        Dev Finder
-      </Text>
-
-      <FlatList
-        className="mt-12"
-        data={drawerItems}
-        renderItem={({ item }) => (
-          <DrawerItem isDark={colorScheme == 'dark'} {...item} />
-        )}
-        keyExtractor={(item) => item.label}
-      />
-
-      <View className="absolute bottom-6 left-6 flex-row items-center gap-4">
-        <Switch value={colorScheme === 'dark'} onChange={toggleColorScheme} />
-
-        <Text className="font-lato-bold text-xl dark:text-white">
-          {i18n['Dark mode']}
+    <>
+      <View className="p-8 h-full dark:bg-gray-800">
+        <Text className="font-black-han-sans text-[1.6rem] dark:text-white">
+          Dev Finder
         </Text>
+
+        <FlatList
+          className="mt-12"
+          data={drawerItems}
+          renderItem={({ item }) => (
+            <DrawerItem isDark={colorScheme == 'dark'} {...item} />
+          )}
+          keyExtractor={(item) => item.label}
+        />
+
+        <View className="absolute bottom-6 left-6 flex-row items-center gap-4">
+          <Switch value={colorScheme === 'dark'} onChange={toggleColorScheme} />
+
+          <Text className="font-lato-bold text-xl dark:text-white">
+            {i18n['Dark mode']}
+          </Text>
+        </View>
       </View>
-    </View>
+
+      <ActionSheet
+        ref={actionSheetRef}
+        containerStyle={{
+          backgroundColor: isDark ? '#1E1E1E' : '#FFFFFF',
+          paddingHorizontal: 32,
+          paddingBottom: 64,
+        }}
+      >
+        <Text className="font-lato-bold text-xl dark:text-white mt-8 mb-6">
+          {i18n['Language']}
+        </Text>
+
+        <FlatList
+          data={Languages}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              hitSlop={10}
+              className="flex-row items-center gap-2 mt-4 mb-4"
+              onPress={() => handleChangeLanguage(item.code)}
+            >
+              <Text className="font-lato-bold dark:text-white">
+                {item.flag}
+              </Text>
+              <Text className="font-lato-bold dark:text-white">
+                {item.name}
+              </Text>
+            </TouchableOpacity>
+          )}
+          keyExtractor={(item) => item.code}
+        />
+      </ActionSheet>
+    </>
   );
 }

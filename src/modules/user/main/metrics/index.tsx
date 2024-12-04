@@ -1,10 +1,11 @@
 import { RootState } from '@/src/store/types';
-import { i18n } from '@/src/utils/i18n';
 import { Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
 
 export default function UserMetrics() {
   const { currentUser } = useSelector((state: RootState) => state.user);
+
+  const i18n = useSelector((state: RootState) => state.app.language);
 
   return (
     <View>

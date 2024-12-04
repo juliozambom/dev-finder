@@ -8,10 +8,10 @@ import { useColorScheme } from 'nativewind';
 import { RepositoriesSort } from '@/src/store/user/types';
 import { useAppDispatch } from '@/src/store/hooks/useAppDispatch';
 import { setRepositoriesSort } from '@/src/store/user/slice';
-import { i18n } from '@/src/utils/i18n';
 
 export default function UserRepositoriesOrder() {
   const { repositoriesSort } = useSelector((state: RootState) => state.user);
+  const i18n = useSelector((state: RootState) => state.app.language);
   const { colorScheme } = useColorScheme();
   const dispatch = useAppDispatch();
   const actionSheetRef = useRef<ActionSheetRef>(null);

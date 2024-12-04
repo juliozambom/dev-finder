@@ -16,7 +16,6 @@ import { useSelector } from 'react-redux';
 import { useColorScheme } from 'nativewind';
 import { useRouter } from 'expo-router';
 import { cn } from '@/src/utils/cn';
-import { i18n } from '@/src/utils/i18n';
 
 export default function HomeSearchForm() {
   const router = useRouter();
@@ -25,6 +24,8 @@ export default function HomeSearchForm() {
   const { isLoading } = useSelector((state: RootState) => state.user);
 
   const [search, setSearch] = useState('');
+
+  const i18n = useSelector((state: RootState) => state.app.language);
 
   const handleSubmit = () => {
     dispatch(fetchUser(search))

@@ -1,6 +1,5 @@
 import { RootState } from '@/src/store/types';
 import { IRepository } from '@/src/store/user/types';
-import { i18n } from '@/src/utils/i18n';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 import { FlatList, View, Text, TouchableOpacity, Linking } from 'react-native';
@@ -50,6 +49,7 @@ function RepositoryItem({
   visibility: string;
 }) {
   const { repositoriesSort } = useSelector((state: RootState) => state.user);
+  const i18n = useSelector((state: RootState) => state.app.language);
 
   const showForks =
     (forks > 0 && forks > stars && repositoriesSort != 'most-stars') ||
@@ -156,7 +156,7 @@ export default function UserRepositoriesList() {
       }}
       className="mt-8"
       renderItem={({ item }) => <RepositoryItem {...item} />}
-      keyExtractor={(item, index) => index.toString()}
+      keyExtractor={(item) => item.url}
       showsVerticalScrollIndicator={false}
     />
   );

@@ -1,6 +1,6 @@
-import { i18n, i18nLocales } from '@/src/utils/i18n';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Alert } from 'react-native';
+import { RootState } from '../types';
 
 interface GithubAPIUserResponse {
   login: string;
@@ -63,12 +63,16 @@ interface GithubAPIRepositoryResponse {
 
 export const fetchUser = createAsyncThunk(
   'user/fetchUser',
-  async (username: string, { rejectWithValue }) => {
+  async (username: string, { getState, rejectWithValue }) => {
     try {
       const response = await fetch(`https://api.github.com/users/${username}`);
       const data = (await response.json()) as GithubAPIUserResponse;
 
       if (data?.status == '404') {
+        const state = getState() as RootState;
+
+        const i18n = state.app.language;
+
         Alert.alert(
           i18n['User not found'],
           i18n['Check the username, and try again.']
@@ -85,12 +89,16 @@ export const fetchUser = createAsyncThunk(
 
 export const fetchUserRepositories = createAsyncThunk(
   'user/fetchUserRepositories',
-  async (username: string, { rejectWithValue }) => {
+  async (username: string, { rejectWithValue, getState }) => {
     try {
       const response = await fetch(
         `https://api.github.com/users/${username}/repos`
       );
       const data = (await response.json()) as GithubAPIRepositoryResponse[];
+
+      const state = getState() as RootState;
+
+      const i18n = state.app.language;
 
       if (data.length == 0) {
         Alert.alert(
