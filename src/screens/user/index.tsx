@@ -7,7 +7,7 @@ import UserRepositories from '@/src/modules/user/main/see-repositories';
 
 export default function User() {
   return (
-    <View className="flex-1">
+    <View className="flex-1 bg-white dark:bg-gray-800">
       <UserProfilePicture />
       <UserDetails />
       <UserMetrics />

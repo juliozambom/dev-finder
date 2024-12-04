@@ -9,6 +9,11 @@ import { I18NLanguage } from '@/src/shared/utils/i18n';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useColorScheme } from 'nativewind';
 import { useEffect } from 'react';
+import { Provider } from 'react-redux';
+import { store } from '../../shared/store';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native';
+import { Slot } from 'expo-router';
 
 export default function Index() {
   const dispatch = useAppDispatch();

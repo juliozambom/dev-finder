@@ -13,6 +13,9 @@ module.exports = {
     './src/modules/*.{ts,tsx}',
     './src/modules/**/*.{ts,tsx}',
     './src/modules/**/**/*.{ts,tsx}',
+    './src/shared/**/**/*.{ts,tsx}',
+    './src/shared/**/**/*.{ts,tsx}',
+    './src/shared/**/**/*.{ts,tsx}',
   ],
   darkMode: 'class',
   theme: {

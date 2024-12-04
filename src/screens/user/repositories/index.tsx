@@ -5,7 +5,7 @@ import { View } from 'react-native';
 
 export default function UserRepositories() {
   return (
-    <View className="px-8 py-6">
+    <View className="px-8 py-6 bg-white dark:bg-gray-800">
       <UserRepositoriesHeader />
       <UserRepositoriesOrder />
       <UserRepositoriesList />
