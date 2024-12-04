@@ -48,8 +48,14 @@ function RepositoryItem({
   forks: number;
   visibility: string;
 }) {
-  const showForks = forks > 0 && forks > stars;
-  const showStars = stars > 0 && stars > forks;
+  const { repositoriesSort } = useSelector((state: RootState) => state.user);
+
+  const showForks =
+    (forks > 0 && forks > stars && repositoriesSort != 'most-stars') ||
+    repositoriesSort == 'most-forks';
+  const showStars =
+    (stars > 0 && stars > forks && repositoriesSort != 'most-forks') ||
+    repositoriesSort == 'most-stars';
 
   return (
     <TouchableOpacity
