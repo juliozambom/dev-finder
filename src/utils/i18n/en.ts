@@ -9,7 +9,7 @@ export const en = {
   'See repositories': 'See repositories',
   Public: 'Public',
   'Sort by:': 'Sort by:',
-  Alphabetical: 'Alfabética',
+  Alphabetical: 'Alphabetical',
   'Most stars': 'Most stars',
   'Most forks': 'Most forks',
   Repositories: 'Repositories',
