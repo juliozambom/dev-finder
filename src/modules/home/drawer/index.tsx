@@ -1,8 +1,9 @@
 import { setLanguage } from '@/src/store/app/slice';
 import { useAppDispatch } from '@/src/store/hooks/useAppDispatch';
 import { RootState } from '@/src/store/types';
-import { i18nLocales, Languages } from '@/src/utils/i18n';
+import { I18NLanguage, i18nLocales, Languages } from '@/src/utils/i18n';
 import { MaterialIcons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { DrawerContentComponentProps } from '@react-navigation/drawer';
 import { Href, router, useRouter } from 'expo-router';
 import { useColorScheme } from 'nativewind';
@@ -66,9 +67,17 @@ export default function HomeDrawer(drawerProps: DrawerContentComponentProps) {
 
   const isDark = colorScheme === 'dark';
 
-  const handleChangeLanguage = (language: string) => {
-    dispatch(setLanguage(i18nLocales[language as keyof typeof i18nLocales]));
+  const handleChangeLanguage = (language: I18NLanguage) => {
+    dispatch(setLanguage(language));
     actionSheetRef.current?.hide();
+  };
+
+  const handleToggleColorScheme = () => {
+    AsyncStorage.setItem(
+      'ColorScheme',
+      colorScheme == 'dark' ? 'light' : 'dark'
+    );
+    toggleColorScheme();
   };
 
   return (
@@ -88,7 +97,10 @@ export default function HomeDrawer(drawerProps: DrawerContentComponentProps) {
         />
 
         <View className="absolute bottom-6 left-6 flex-row items-center gap-4">
-          <Switch value={colorScheme === 'dark'} onChange={toggleColorScheme} />
+          <Switch
+            value={colorScheme === 'dark'}
+            onChange={handleToggleColorScheme}
+          />
 
           <Text className="font-lato-bold text-xl dark:text-white">
             {i18n['Dark mode']}
@@ -114,7 +126,7 @@ export default function HomeDrawer(drawerProps: DrawerContentComponentProps) {
             <TouchableOpacity
               hitSlop={10}
               className="flex-row items-center gap-2 mt-4 mb-4"
-              onPress={() => handleChangeLanguage(item.code)}
+              onPress={() => handleChangeLanguage(item.code as I18NLanguage)}
             >
               <Text className="font-lato-bold dark:text-white">
                 {item.flag}
