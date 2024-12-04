@@ -1,5 +1,6 @@
 import { RootState } from '@/src/store/types';
 import { IRepository } from '@/src/store/user/types';
+import { i18n } from '@/src/utils/i18n';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 import { FlatList, View, Text, TouchableOpacity, Linking } from 'react-native';
@@ -112,7 +113,9 @@ function RepositoryItem({
             )}
           </View>
           <View className="bg-green-100 px-2 py-1 rounded-md">
-            <Text className="text-green-400">{visibility}</Text>
+            <Text className="text-green-400">
+              {visibility == 'public' ? i18n['Public'] : visibility}
+            </Text>
           </View>
         </View>
       </View>

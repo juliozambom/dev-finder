@@ -2,7 +2,7 @@ import { i18n } from '@/src/utils/i18n';
 import { MaterialIcons } from '@expo/vector-icons';
 import { DrawerContentComponentProps } from '@react-navigation/drawer';
 import { Href, useRouter } from 'expo-router';
-import { colorScheme, useColorScheme } from 'nativewind';
+import { useColorScheme } from 'nativewind';
 import { FlatList, Switch, Text, TouchableOpacity, View } from 'react-native';
 
 function DrawerItem({
@@ -67,7 +67,7 @@ export default function HomeDrawer(drawerProps: DrawerContentComponentProps) {
         renderItem={({ item }) => (
           <DrawerItem isDark={colorScheme == 'dark'} {...item} />
         )}
-        keyExtractor={(item, index) => index.toString()}
+        keyExtractor={(item) => item.label}
       />
 
       <View className="absolute bottom-6 left-6 flex-row items-center gap-4">
