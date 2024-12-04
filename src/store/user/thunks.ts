@@ -38,6 +38,27 @@ interface GithubAPIUserResponse {
   status?: string;
 }
 
+interface GithubAPIRepositoryResponse {
+  id: number;
+  node_id: string;
+  name: string;
+  full_name: string;
+  private: boolean;
+  owner: GithubAPIUserResponse;
+  html_url: string;
+  description: string;
+  fork: boolean;
+  url: string;
+  size: number;
+  stargazers_count: number;
+  watchers_count: number;
+  language: string;
+  forks: number;
+  watchers: number;
+  visibility: string;
+  default_branch: string;
+}
+
 export const fetchUser = createAsyncThunk(
   'user/fetchUser',
   async (username: string, { rejectWithValue }) => {
@@ -46,6 +67,26 @@ export const fetchUser = createAsyncThunk(
       const data = (await response.json()) as GithubAPIUserResponse;
 
       if (data?.status == '404') {
+        throw new Error('NotFoundError');
+      }
+
+      return data;
+    } catch (error) {
+      return rejectWithValue(error || 'UnexpectedError');
+    }
+  }
+);
+
+export const fetchUserRepositories = createAsyncThunk(
+  'user/fetchUserRepositories',
+  async (username: string, { rejectWithValue }) => {
+    try {
+      const response = await fetch(
+        `https://api.github.com/users/${username}/repos`
+      );
+      const data = (await response.json()) as GithubAPIRepositoryResponse[];
+
+      if (data.length == 0) {
         throw new Error('NotFoundError');
       }
 

@@ -1,19 +1,39 @@
+import { useAppDispatch } from '@/src/store/hooks/useAppDispatch';
+import { RootState } from '@/src/store/types';
+import { fetchUserRepositories } from '@/src/store/user/thunks';
 import { useRouter } from 'expo-router';
-import { Text, TouchableOpacity, View } from 'react-native';
+
+import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
+import { useSelector } from 'react-redux';
 
 export default function UserRepositories() {
   const router = useRouter();
+  const { currentUser, isRepositoriesLoading } = useSelector(
+    (state: RootState) => state.user
+  );
+  const dispatch = useAppDispatch();
+
+  const handleSubmit = () => {
+    dispatch(fetchUserRepositories(currentUser.slug))
+      .unwrap()
+      .then(() => router.push('/user/repositories'));
+  };
+
   return (
     <View className="px-8">
       <TouchableOpacity
         className="bg-green-500 rounded-md py-6 items-center mt-6"
-        onPress={() => {
-          router.push('/user/repositories');
-        }}
+        onPress={handleSubmit}
       >
-        <Text className="text-white font-lato-bold text-xl leading-5">
-          See repositories
-        </Text>
+        {!isRepositoriesLoading && (
+          <Text className="text-white font-lato-bold text-xl leading-5">
+            See repositories
+          </Text>
+        )}
+
+        {isRepositoriesLoading && (
+          <ActivityIndicator size="small" color="#FFFFFF" />
+        )}
       </TouchableOpacity>
     </View>
   );
