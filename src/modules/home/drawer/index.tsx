@@ -57,7 +57,7 @@ export default function HomeDrawer(drawerProps: DrawerContentComponentProps) {
   return (
     <View className="p-8 h-full dark:bg-gray-800">
       <Text className="font-black-han-sans text-[1.6rem] dark:text-white">
-        Dev Tracker
+        Dev Finder
       </Text>
 
       <FlatList

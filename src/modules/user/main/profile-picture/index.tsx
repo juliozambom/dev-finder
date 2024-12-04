@@ -1,15 +1,18 @@
+import { RootState } from '@/src/store/types';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { ImageBackground, TouchableOpacity, View } from 'react-native';
+import { useSelector } from 'react-redux';
 
 export default function UserProfilePicture() {
   const router = useRouter();
+  const { currentUser } = useSelector((state: RootState) => state.user);
 
   return (
     <ImageBackground
       className="w-full aspect-square"
       source={{
-        uri: 'https://avatars.githubusercontent.com/u/128169023?v=4',
+        uri: currentUser.avatar,
       }}
     >
       <View className="mt-8">

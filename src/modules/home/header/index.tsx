@@ -21,7 +21,7 @@ export default function HomeHeader() {
           />
         </TouchableOpacity>
         <Text className="font-black-han-sans text-[1.6rem] dark:text-white">
-          Dev Tracker
+          Dev Finder
         </Text>
       </View>
 
