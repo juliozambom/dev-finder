@@ -87,7 +87,7 @@ function RepositoryItem({
               <Text className="font-lato-normal text-gray-200 text-xs">•</Text>
             )}
 
-            {!showForks && (
+            {showForks && (
               <View className="flex-row items-center gap-1">
                 <MaterialIcons name="fork-right" size={20} color="#C4C4C4" />
                 <Text className="font-lato-normal dark:text-white text-md">
