@@ -1,50 +1,64 @@
-# Welcome to your Expo app 👋
+# Projeto realizado como teste técnico do [Desafio Mobile da DesbravadorSoftware](https://github.com/DesbravadorSoftware/desafioMobile) 🚀
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## O que este projeto contém:
 
-## Get started
+1) Buscar por um usuário do GitHub
+2) Ver detalhes do usuário buscado
+3) Ver listagem dos repositórios do usuário buscado
+4) Ver detalhes de um repositório (nome, descrição, estrelas, linguagem + link externo para acessar o projeto no Github)
+5) Ordenar a listagem dos repositórios (Alfabética, mais estrelas e mais forks)
+6) Salvar o seu perfil de Github como usuário no aplicativo
+7) Favoritar/Salvar perfis buscados
+8) Internacionalização (Inglês e português)
+9) Tema claro e escuro
 
-1. Install dependencies
 
-   ```bash
-   npm install
-   ```
+## Quais foram as tecnologias utilizadas?
 
-2. Start the app
+Esse projeto foi composto pelas seguintes techs:
+1) React Native
+2) Expo (SDK 52 com Expo Router)
+3) Redux
+4) Nativewind
 
-   ```bash
-    npx expo start
-   ```
 
-In the output, you'll find options to open the app in a
+## Preview do projeto
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+<div style="display: flex; flex-direction: row;"> 
+   <img src="https://github.com/user-attachments/assets/0455e753-a249-4ff8-86de-f262a93892b4" width="200"/>
+   <img src="https://github.com/user-attachments/assets/19cf647a-6886-4d00-9ace-b889c0654076" width="200"/>
+   <img src="https://github.com/user-attachments/assets/76c01796-901d-4b8e-bdf7-5d8773a1a2b4" width="200"/>
+   <img src="https://github.com/user-attachments/assets/2f347973-b973-4620-bf3a-1a3a042d4ddd" width="200"/>
+</div>
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+## Instruções para rodar o ambiente de desenvolvimento
 
-When you're ready, run:
+1) Realize a clonagem do repositório
 
 ```bash
-npm run reset-project
+git clone https://github.com/juliozambom/dev-finder
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-## Learn more
+2) Com o repositório clonado, acesse a pasta no terminal e instale as dependências utilizando o [Yarn](https://classic.yarnpkg.com/lang/en/docs/install)
+   
+```bash
+yarn
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+3) Dependências instaladas, agora é só rodar o projeto
+   
+```bash
+yarn start
+```  
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+4) Com o projeto rodando, aperte a tecla I para rodar num emulador do iOS (Usuários de Mac) ou a tecla A para rodar num emulador do sistema android (Usuários do Android Studio)
+   
 
-## Join the community
+5) (Opcional) Caso não tenha nenhum emulador instalado, existe a opção de baixar o aplicativo Expo GO no seu dispositivo, e fazer a leitura do QR Code exibido na saída do comando de start
 
-Join our community of developers creating universal apps.
+<img width="586" alt="image" src="https://github.com/user-attachments/assets/180e6500-6284-495f-ad45-6718b9a7dbda">
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+   
