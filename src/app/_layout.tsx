@@ -44,6 +44,8 @@ export default function RootLayout() {
             }}
           >
             <Stack.Screen name="(drawer)" />
+            <Stack.Screen name="favorited-users" />
+            <Stack.Screen name="save-user" />
           </Stack>
         </SafeAreaView>
       </GestureHandlerRootView>
