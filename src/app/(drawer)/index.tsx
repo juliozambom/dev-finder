@@ -1,5 +1,9 @@
 import Home from '@/src/screens/home';
-import { setLanguage, setSavedUser } from '@/src/shared/store/app/slice';
+import {
+  setFavoritedUsers,
+  setLanguage,
+  setSavedUser,
+} from '@/src/shared/store/app/slice';
 import { useAppDispatch } from '@/src/shared/store/hooks/useAppDispatch';
 import { I18NLanguage } from '@/src/shared/utils/i18n';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -17,6 +21,14 @@ export default function Index() {
         | 'light'
         | 'dark';
       const savedUser = (await AsyncStorage.getItem('savedUser')) as string;
+      const favoritedUsers = (await AsyncStorage.getItem(
+        'favoritedUsers'
+      )) as string;
+
+      if (favoritedUsers) {
+        console.log(favoritedUsers);
+        dispatch(setFavoritedUsers(JSON.parse(favoritedUsers)));
+      }
 
       if (savedUser) {
         dispatch(setSavedUser(JSON.parse(savedUser)));

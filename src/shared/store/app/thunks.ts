@@ -1,7 +1,35 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Alert } from 'react-native';
-import { RootState } from '../types';
+import { IUser, RootState } from '../types';
 import { FetchUserService } from '../../services/github/user/fetch-user';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+export const fetchFavoriteUser = createAsyncThunk(
+  'app/fetchFavoriteUser',
+  async (user: IUser) => {
+    const users = await AsyncStorage.getItem('favoritedUsers');
+
+    const favoritedUsers = JSON.parse(users || '[]') as IUser[];
+
+    const isUserAlreadySaved = favoritedUsers.some(
+      (item) => item.slug == user.slug
+    );
+
+    let result = favoritedUsers;
+
+    if (isUserAlreadySaved) {
+      result = favoritedUsers.filter((item) => item.slug != user.slug);
+    }
+
+    if (!isUserAlreadySaved) {
+      result.push(user);
+    }
+
+    AsyncStorage.setItem('favoritedUsers', JSON.stringify(result));
+
+    return result;
+  }
+);
 
 export const fetchToSaveUser = createAsyncThunk(
   'app/fetchSavedUser',
