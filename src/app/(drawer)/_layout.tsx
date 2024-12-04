@@ -14,7 +14,7 @@ export default function DrawerLayout() {
       }}
       drawerContent={(props) => <HomeDrawer {...props} />}
     >
-      <Drawer.Screen name="user/index" />
+      <Drawer.Screen name="index" />
     </Drawer>
   );
 }

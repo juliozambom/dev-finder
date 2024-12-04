@@ -23,4 +23,6 @@ export const pt_br: typeof en = {
   'This user has no repositories.': 'Esse usuário não tem repositórios.',
   'Enter your Github username': 'Digite seu nome de usuário do Github',
   'Remove account': 'Remover conta',
+  'We couldn’t find any favorited users':
+    'Não conseguimos encontrar nenhum usuário favorito',
 };

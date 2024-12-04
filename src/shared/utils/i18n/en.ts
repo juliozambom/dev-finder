@@ -20,4 +20,6 @@ export const en = {
   'This user has no repositories.': 'This user has no repositories.',
   'Enter your Github username': 'Enter your Github username',
   'Remove account': 'Remove account',
+  'We couldn’t find any favorited users':
+    'We couldn’t find any favorited users',
 };

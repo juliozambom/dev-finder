@@ -6,6 +6,16 @@ import { useSelector } from 'react-redux';
 export const FavoritedUsersList = () => {
   const { favoritedUsers } = useSelector((state: RootState) => state.app);
 
+  const i18n = useSelector((state: RootState) => state.app.language);
+
+  if (favoritedUsers.length == 0) {
+    return (
+      <Text className="dark:text-white font-lato-bold text-center mt-4">
+        {i18n['We couldn’t find any favorited users']}
+      </Text>
+    );
+  }
+
   return (
     <FlatList
       data={favoritedUsers}
