@@ -51,7 +51,7 @@ export default function HomeDrawer(drawerProps: DrawerContentComponentProps) {
     {
       label: i18n['Saved'],
       icon: 'bookmark-border',
-      onPress: () => router.push('/user'),
+      onPress: () => router.push('/favorited-users'),
     },
     {
       label: i18n['Language'],
