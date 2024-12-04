@@ -1,5 +1,7 @@
 import { RootState } from '@/src/store/types';
+import { IRepository } from '@/src/store/user/types';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useEffect, useState } from 'react';
 import { FlatList, View, Text, TouchableOpacity, Linking } from 'react-native';
 import { useSelector } from 'react-redux';
 
@@ -85,7 +87,7 @@ function RepositoryItem({
               <Text className="font-lato-normal text-gray-200 text-xs">•</Text>
             )}
 
-            {showForks && (
+            {!showForks && (
               <View className="flex-row items-center gap-1">
                 <MaterialIcons name="fork-right" size={20} color="#C4C4C4" />
                 <Text className="font-lato-normal dark:text-white text-md">
@@ -113,11 +115,33 @@ function RepositoryItem({
 }
 
 export default function UserRepositoriesList() {
-  const { repositories } = useSelector((state: RootState) => state.user);
+  const { repositories, repositoriesSort } = useSelector(
+    (state: RootState) => state.user
+  );
+
+  const [sortedRepositories, setSortedRepositories] = useState(repositories);
+
+  useEffect(() => {
+    let sortedRepositories = [...repositories];
+
+    setSortedRepositories(
+      sortedRepositories.sort((a: IRepository, b: IRepository) => {
+        if (repositoriesSort === 'best-match') {
+          return 0;
+        } else if (repositoriesSort === 'most-stars') {
+          return a.stars > b.stars ? -1 : 1;
+        } else if (repositoriesSort === 'most-forks') {
+          return a.forks > b.forks ? -1 : 1;
+        }
+
+        return 1;
+      })
+    );
+  }, [repositoriesSort]);
 
   return (
     <FlatList
-      data={repositories}
+      data={sortedRepositories}
       contentContainerStyle={{
         paddingBottom: 80,
       }}
