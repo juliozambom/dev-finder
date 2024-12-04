@@ -1,3 +1,4 @@
+import { i18n } from '@/src/utils/i18n';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useColorScheme } from 'nativewind';
@@ -19,7 +20,7 @@ export default function UserRepositoriesHeader() {
       </TouchableOpacity>
 
       <Text className="font-lato-regular text-2xl dark:text-white">
-        Repositories
+        {i18n['Repositories']}
       </Text>
     </View>
   );

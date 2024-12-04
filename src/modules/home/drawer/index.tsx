@@ -1,3 +1,4 @@
+import { i18n } from '@/src/utils/i18n';
 import { MaterialIcons } from '@expo/vector-icons';
 import { DrawerContentComponentProps } from '@react-navigation/drawer';
 import { Href, useRouter } from 'expo-router';
@@ -41,12 +42,12 @@ export default function HomeDrawer(drawerProps: DrawerContentComponentProps) {
     href: Href;
   }[] = [
     {
-      label: 'Saved',
+      label: i18n['Saved'],
       icon: 'bookmark-border',
       href: '/user',
     },
     {
-      label: 'Language',
+      label: i18n['Language'],
       icon: 'language',
       href: '/user',
     },
@@ -73,7 +74,7 @@ export default function HomeDrawer(drawerProps: DrawerContentComponentProps) {
         <Switch value={colorScheme === 'dark'} onChange={toggleColorScheme} />
 
         <Text className="font-lato-bold text-xl dark:text-white">
-          Dark mode
+          {i18n['Dark mode']}
         </Text>
       </View>
     </View>

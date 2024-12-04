@@ -16,6 +16,7 @@ import { useSelector } from 'react-redux';
 import { useColorScheme } from 'nativewind';
 import { useRouter } from 'expo-router';
 import { cn } from '@/src/utils/cn';
+import { i18n } from '@/src/utils/i18n';
 
 export default function HomeSearchForm() {
   const router = useRouter();
@@ -39,7 +40,7 @@ export default function HomeSearchForm() {
     <View className="justify-between w-full mt-8">
       <View className="bg-gray-100 dark:bg-gray-700 w-full rounded-md px-6 py-6 justify-center">
         <TextInput
-          placeholder="Search a dev"
+          placeholder={i18n['Search a dev']}
           autoCapitalize="none"
           className="font-lato-normal text-xl dark:text-white leading-5"
           onChange={handleChange}
@@ -66,7 +67,7 @@ export default function HomeSearchForm() {
       >
         {!isLoading && (
           <Text className="text-white font-lato-bold text-xl leading-5">
-            Find
+            {i18n['Find']}
           </Text>
         )}
 

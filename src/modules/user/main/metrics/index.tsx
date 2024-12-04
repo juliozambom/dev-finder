@@ -1,4 +1,5 @@
 import { RootState } from '@/src/store/types';
+import { i18n } from '@/src/utils/i18n';
 import { Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
 
@@ -10,7 +11,7 @@ export default function UserMetrics() {
       <View className="flex-row items-center justify-center gap-8 mt-4">
         <View className="items-center gap-4">
           <Text className="font-lato-normal text-lg dark:text-white">
-            Followers
+            {i18n['Followers']}
           </Text>
           <Text className="text-blue-300 text-3xl">
             {currentUser.followers}
@@ -21,7 +22,7 @@ export default function UserMetrics() {
 
         <View className="items-center gap-4">
           <Text className="font-lato-normal text-lg dark:text-white">
-            Following
+            {i18n['Following']}
           </Text>
           <Text className="text-blue-300 text-3xl">
             {currentUser.following}

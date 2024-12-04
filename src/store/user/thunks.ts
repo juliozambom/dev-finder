@@ -1,3 +1,4 @@
+import { i18n, i18nLocales } from '@/src/utils/i18n';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Alert } from 'react-native';
 
@@ -68,7 +69,10 @@ export const fetchUser = createAsyncThunk(
       const data = (await response.json()) as GithubAPIUserResponse;
 
       if (data?.status == '404') {
-        Alert.alert('User not found', 'Check the username, and try again.');
+        Alert.alert(
+          i18n['User not found'],
+          i18n['Check the username, and try again.']
+        );
         throw new Error('NotFoundError');
       }
 
@@ -89,7 +93,10 @@ export const fetchUserRepositories = createAsyncThunk(
       const data = (await response.json()) as GithubAPIRepositoryResponse[];
 
       if (data.length == 0) {
-        Alert.alert('Repositories not found', 'This user has no repositories.');
+        Alert.alert(
+          i18n['Repositories not found'],
+          i18n['This user has no repositories.']
+        );
         throw new Error('NotFoundError');
       }
 

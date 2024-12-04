@@ -8,6 +8,7 @@ import { useColorScheme } from 'nativewind';
 import { RepositoriesSort } from '@/src/store/user/types';
 import { useAppDispatch } from '@/src/store/hooks/useAppDispatch';
 import { setRepositoriesSort } from '@/src/store/user/slice';
+import { i18n } from '@/src/utils/i18n';
 
 export default function UserRepositoriesOrder() {
   const { repositoriesSort } = useSelector((state: RootState) => state.user);
@@ -18,9 +19,9 @@ export default function UserRepositoriesOrder() {
   const isDark = colorScheme === 'dark';
 
   const SortMap = {
-    'best-match': 'Best match',
-    'most-stars': 'Most stars',
-    'most-forks': 'Most forks',
+    'best-match': i18n['Alphabetical'],
+    'most-stars': i18n['Most stars'],
+    'most-forks': i18n['Most forks'],
   };
 
   const sortOptions = [
@@ -52,7 +53,9 @@ export default function UserRepositoriesOrder() {
         onPress={() => actionSheetRef.current?.show()}
         className="flex w-full flex-row justify-end items-center gap-2 mt-2"
       >
-        <Text className="font-lato-bold dark:text-white">Sort by:</Text>
+        <Text className="font-lato-bold dark:text-white">
+          {i18n['Sort by:']}
+        </Text>
 
         <View className="items-center flex-row">
           <Text className="font-lato-bold text-blue-300">
@@ -71,7 +74,7 @@ export default function UserRepositoriesOrder() {
         }}
       >
         <Text className="font-lato-bold text-xl dark:text-white mt-8 mb-6">
-          Sort by:
+          {i18n['Sort by:']}
         </Text>
 
         <FlatList

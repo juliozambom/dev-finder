@@ -1,6 +1,7 @@
 import { useAppDispatch } from '@/src/store/hooks/useAppDispatch';
 import { RootState } from '@/src/store/types';
 import { fetchUserRepositories } from '@/src/store/user/thunks';
+import { i18n } from '@/src/utils/i18n';
 import { useRouter } from 'expo-router';
 
 import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
@@ -27,7 +28,7 @@ export default function UserRepositories() {
       >
         {!isRepositoriesLoading && (
           <Text className="text-white font-lato-bold text-xl leading-5">
-            See repositories
+            {i18n['See repositories']}
           </Text>
         )}
 
