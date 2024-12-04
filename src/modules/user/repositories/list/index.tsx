@@ -1,5 +1,5 @@
-import { RootState } from '@/src/store/types';
-import { IRepository } from '@/src/store/user/types';
+import { RootState } from '@/src/shared/store/types';
+import { IRepository } from '@/src/shared/store/user/types';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 import { FlatList, View, Text, TouchableOpacity, Linking } from 'react-native';

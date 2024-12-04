@@ -1,4 +1,4 @@
-import HomeDrawer from '@/src/modules/home/drawer';
+import HomeDrawer from '@/src/modules/home/main/drawer';
 import { Drawer } from 'expo-router/drawer';
 
 export default function DrawerLayout() {

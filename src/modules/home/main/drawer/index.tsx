@@ -1,11 +1,11 @@
-import { setLanguage } from '@/src/store/app/slice';
-import { useAppDispatch } from '@/src/store/hooks/useAppDispatch';
-import { RootState } from '@/src/store/types';
-import { I18NLanguage, i18nLocales, Languages } from '@/src/utils/i18n';
+import { setLanguage } from '@/src/shared/store/app/slice';
+import { useAppDispatch } from '@/src/shared/store/hooks/useAppDispatch';
+import { RootState } from '@/src/shared/store/types';
+import { I18NLanguage, Languages } from '@/src/shared/utils/i18n';
 import { MaterialIcons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { DrawerContentComponentProps } from '@react-navigation/drawer';
-import { Href, router, useRouter } from 'expo-router';
+import { useRouter } from 'expo-router';
 import { useColorScheme } from 'nativewind';
 import { useRef } from 'react';
 import { FlatList, Switch, Text, TouchableOpacity, View } from 'react-native';

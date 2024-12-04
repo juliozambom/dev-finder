@@ -18,4 +18,6 @@ export const en = {
   'Check the username, and try again.': 'Check the username, and try again.',
   'Repositories not found': 'Repositories not found',
   'This user has no repositories.': 'This user has no repositories.',
+  'Enter your Github username': 'Enter your Github username',
+  'Remove account': 'Remove account',
 };

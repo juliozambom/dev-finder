@@ -1,13 +1,13 @@
-import { RootState } from '@/src/store/types';
+import { RootState } from '@/src/shared/store/types';
 import { MaterialIcons } from '@expo/vector-icons';
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import ActionSheet, { ActionSheetRef } from 'react-native-actions-sheet';
 import { useRef } from 'react';
 import { useColorScheme } from 'nativewind';
-import { RepositoriesSort } from '@/src/store/user/types';
-import { useAppDispatch } from '@/src/store/hooks/useAppDispatch';
-import { setRepositoriesSort } from '@/src/store/user/slice';
+import { RepositoriesSort } from '@/src/shared/store/user/types';
+import { useAppDispatch } from '@/src/shared/store/hooks/useAppDispatch';
+import { setRepositoriesSort } from '@/src/shared/store/user/slice';
 
 export default function UserRepositoriesOrder() {
   const { repositoriesSort } = useSelector((state: RootState) => state.user);
@@ -70,7 +70,7 @@ export default function UserRepositoriesOrder() {
         containerStyle={{
           backgroundColor: isDark ? '#1E1E1E' : '#FFFFFF',
           paddingHorizontal: 32,
-          paddingBottom: 64,
+          paddingBottom: 20,
         }}
       >
         <Text className="font-lato-bold text-xl dark:text-white mt-8 mb-6">

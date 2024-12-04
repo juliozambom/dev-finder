@@ -1,6 +1,6 @@
-import { useAppDispatch } from '@/src/store/hooks/useAppDispatch';
-import { RootState } from '@/src/store/types';
-import { fetchUserRepositories } from '@/src/store/user/thunks';
+import { useAppDispatch } from '@/src/shared/store/hooks/useAppDispatch';
+import { RootState } from '@/src/shared/store/types';
+import { fetchUserRepositories } from '@/src/shared/store/user/thunks';
 import { useRouter } from 'expo-router';
 
 import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';

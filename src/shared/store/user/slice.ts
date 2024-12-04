@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IRepository, IUser, RepositoriesSort } from '../user/types';
+import { IRepository, RepositoriesSort } from '../user/types';
 import { fetchUser, fetchUserRepositories } from './thunks';
+import { IUser } from '../types';
 
 export const userSlice = createSlice({
   name: 'user',

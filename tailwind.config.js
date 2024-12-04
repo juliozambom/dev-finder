@@ -1,5 +1,5 @@
-import { colors } from './src/styles/colors';
-import { fontFamily } from './src/styles/fonts';
+import { colors } from './src/shared/styles/colors';
+import { fontFamily } from './src/shared/styles/fonts';
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

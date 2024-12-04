@@ -21,4 +21,6 @@ export const pt_br: typeof en = {
     'Verifique o nome de usuário e tente novamente.',
   'Repositories not found': 'Repositórios não encontrados',
   'This user has no repositories.': 'Esse usuário não tem repositórios.',
+  'Enter your Github username': 'Digite seu nome de usuário do Github',
+  'Remove account': 'Remover conta',
 };

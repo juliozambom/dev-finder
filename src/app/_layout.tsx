@@ -6,8 +6,8 @@ import { SafeAreaView } from 'react-native';
 import { Provider } from 'react-redux';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import '../styles/global.css';
-import { store } from '../store';
+import '../shared/styles/global.css';
+import { store } from '../shared/store';
 
 export default function RootLayout() {
   const [loaded] = useFonts({

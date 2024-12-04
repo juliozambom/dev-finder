@@ -1,4 +1,4 @@
-import { RootState } from '@/src/store/types';
+import { RootState } from '@/src/shared/store/types';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { ImageBackground, TouchableOpacity, View } from 'react-native';

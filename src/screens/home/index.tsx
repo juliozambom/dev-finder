@@ -1,6 +1,6 @@
-import HomeHeader from '@/src/modules/home/header';
 import { View } from 'react-native';
-import HomeSearchForm from '@/src/modules/home/search-form';
+import HomeHeader from '@/src/modules/home/main/header';
+import HomeSearchForm from '@/src/modules/home/main/search-form';
 
 export default function Home() {
   return (

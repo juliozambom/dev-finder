@@ -1,4 +1,4 @@
-import { RootState } from '@/src/store/types';
+import { RootState } from '@/src/shared/store/types';
 import { Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
 
