@@ -18,3 +18,5 @@ export interface IRepository {
   forks: number;
   visibility: string;
 }
+
+export type RepositoriesSort = 'best-match' | 'most-stars' | 'most-forks';

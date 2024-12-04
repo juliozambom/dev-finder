@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IRepository, IUser } from '../user/types';
+import { IRepository, IUser, RepositoriesSort } from '../user/types';
 import { fetchUser, fetchUserRepositories } from './thunks';
 
 export const userSlice = createSlice({
@@ -9,10 +9,14 @@ export const userSlice = createSlice({
     repositories: [] as IRepository[],
     isLoading: false,
     isRepositoriesLoading: false,
+    repositoriesSort: 'best-match' as RepositoriesSort,
   },
   reducers: {
     setUser(state, action: PayloadAction<IUser>) {
       state.currentUser = action.payload;
+    },
+    setRepositoriesSort(state, action: PayloadAction<RepositoriesSort>) {
+      state.repositoriesSort = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -58,3 +62,5 @@ export const userSlice = createSlice({
       });
   },
 });
+
+export const { setRepositoriesSort } = userSlice.actions;
