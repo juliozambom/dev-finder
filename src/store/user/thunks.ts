@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { Alert } from 'react-native';
 
 interface GithubAPIUserResponse {
   login: string;
@@ -67,6 +68,7 @@ export const fetchUser = createAsyncThunk(
       const data = (await response.json()) as GithubAPIUserResponse;
 
       if (data?.status == '404') {
+        Alert.alert('User not found', 'Check the username, and try again.');
         throw new Error('NotFoundError');
       }
 
@@ -87,6 +89,7 @@ export const fetchUserRepositories = createAsyncThunk(
       const data = (await response.json()) as GithubAPIRepositoryResponse[];
 
       if (data.length == 0) {
+        Alert.alert('Repositories not found', 'This user has no repositories.');
         throw new Error('NotFoundError');
       }
 

@@ -41,7 +41,7 @@ export default function HomeSearchForm() {
         <TextInput
           placeholder="Search a dev"
           autoCapitalize="none"
-          className="font-lato-normal text-xl leading-5"
+          className="font-lato-normal text-xl dark:text-white leading-5"
           onChange={handleChange}
           onSubmitEditing={handleSubmit}
         />
